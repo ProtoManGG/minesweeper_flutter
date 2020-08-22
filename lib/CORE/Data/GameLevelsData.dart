@@ -3,15 +3,15 @@ import 'package:minesweeper/CORE/Models/LevelSelectionModel.dart';
 
 class GameLevelsData {
   static LevelSelectionModel beginner =
-      LevelSelectionModel("Beginner", GameLevel.Beginner, 5, 8);
+      LevelSelectionModel("Beginner", GameLevel.Beginner, 5, 10);
   static LevelSelectionModel easy =
-      LevelSelectionModel("Easy", GameLevel.Easy, 10, 12);
+      LevelSelectionModel("Easy", GameLevel.Easy, 10, 10);
   static LevelSelectionModel medium =
-      LevelSelectionModel("Medium", GameLevel.Medium, 20, 15);
+      LevelSelectionModel("Medium", GameLevel.Medium, 50, 12);
   static LevelSelectionModel hard =
-      LevelSelectionModel("Hard", GameLevel.Hard, 25, 20);
+      LevelSelectionModel("Hard", GameLevel.Hard, 70, 17);
   static LevelSelectionModel extreme =
-      LevelSelectionModel("Extreme", GameLevel.Extreme, 40, 22);
+      LevelSelectionModel("Extreme", GameLevel.Extreme, 100, 20);
 
   static List<LevelSelectionModel> getGameLevelsData() {
     return [beginner, easy, medium, hard, extreme];

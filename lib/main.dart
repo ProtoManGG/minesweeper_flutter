@@ -28,6 +28,7 @@ class MSMaterialApp extends StatelessWidget {
   Widget build(BuildContext context) {
     final model = Provider.of<ThemeNotifier>(context);
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       theme: model.currentThemeData,
       home: MainScreen(),
     );

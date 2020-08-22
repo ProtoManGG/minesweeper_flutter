@@ -37,7 +37,6 @@ class _GameBoardState extends State<GameBoard> {
                   alignment: Alignment.centerLeft,
                   child: InkWell(
                       onTap: () {
-                        gameModel.resetAll();
                         Navigator.of(context).pop();
                       },
                       child: Padding(
@@ -80,7 +79,6 @@ class _GameBoardState extends State<GameBoard> {
                     children: [
                       InkWell(
                         onTap: () {
-                          gameModel.resetAll();
                           startNewGame(context);
                         },
                         borderRadius: BorderRadius.circular(25),

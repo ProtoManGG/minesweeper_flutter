@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:minesweeper/CORE/Helpers/emuns.dart';
 import 'package:minesweeper/CORE/ProviderModels/MSCNotifier.dart';
 import 'package:minesweeper/UI/Shared/GameTile.dart';
 import 'package:provider/provider.dart';
@@ -19,7 +20,8 @@ class _GridBoardState extends State<GridBoard> {
       child: SingleChildScrollView(
         scrollDirection: Axis.horizontal,
         child: SizedBox(
-          width: calculateOuterScrollWidth(numRows),
+          width:
+              calculateOuterScrollWidth(numRows, gameModel.currentGameStatus),
           child: ListView.builder(
               itemCount: numRows,
               itemBuilder: (context, index) {
@@ -34,8 +36,8 @@ class _GridBoardState extends State<GridBoard> {
     );
   }
 
-  double calculateOuterScrollWidth(int num) {
-    return 50.0 * num;
+  double calculateOuterScrollWidth(int num, GameStatus gameStatus) {
+      return 50.0 * num;
   }
 
   List<Widget> generateHorizontalItems(int index, int rows) {

@@ -29,17 +29,27 @@ class GameTile extends StatelessWidget {
         return Center(child: Icon(Icons.restaurant_menu));
     }
 
-    return Padding(
-      padding: const EdgeInsets.all(5.0),
-      child: InkWell(
-        onTap: () {
-          gameModel.handleTapOfGameTile(x, y);
-        },
-        onLongPress: () {
-          gameModel.flagPosition(x, y);
-        },
+    return InkWell(
+      onTap: () {
+        gameModel.handleTapOfGameTile(x, y);
+      },
+      onLongPress: () {
+        gameModel.flagPosition(x, y);
+      },
+      child: AnimatedContainer(
+        padding: EdgeInsets.all(
+            gameModel.currentGameStatus == GameStatus.Lost ||
+                    gameModel.currentGameStatus == GameStatus.Won
+                ? 10
+                : 0.0),
+        duration: const Duration(milliseconds: 400),
+        width: 50,
+        height: 50,
         child: AnimatedContainer(
-          duration: const Duration(seconds: 1),
+          width: 30,
+          height: 30,
+          duration: const Duration(milliseconds: 400),
+          child: getChild(),
           color: tileState == TileState.Blasted
               ? Colors.redAccent
               : tileState == TileState.Open
@@ -47,9 +57,6 @@ class GameTile extends StatelessWidget {
                   : tileState == TileState.Flagged
                       ? Colors.grey
                       : Theme.of(context).primaryColor,
-          width: 30,
-          height: 30,
-          child: getChild(),
         ),
       ),
     );

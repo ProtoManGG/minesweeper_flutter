@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:math';
 
 import 'package:flutter/cupertino.dart';
@@ -11,6 +12,10 @@ class MSProvider extends ChangeNotifier {
   GameStatus currentGameStatus = GameStatus.Starting;
 
   bool isResumeAvailable = false;
+
+  int startAnimationDuration = 1;
+  int emptyRevealDuration = 1;
+  int explodesRevealDuration = 1;
 
   List<List<TileState>> allTilesStatus;
   List<List<bool>> allTilesMineStatus;
@@ -60,6 +65,10 @@ class MSProvider extends ChangeNotifier {
         remainingNumOfMines--;
       }
     }
+
+    startAnimationDuration = levelSelectionModel.rowCount * 2;
+    emptyRevealDuration = 0;
+    explodesRevealDuration = (levelSelectionModel.rowCount - 20).abs();
 
     currentGameStatus = GameStatus.Starting;
   }
@@ -125,10 +134,12 @@ class MSProvider extends ChangeNotifier {
   void foundMinePerformActions() {
     for (int x = 0; x < levelSelectionModel.rowCount; x++) {
       for (int y = 0; y < levelSelectionModel.rowCount; y++) {
-        if (allTilesMineStatus[x][y]) {
-          allTilesStatus[x][y] = TileState.Blasted;
+        Future.delayed(Duration(milliseconds: explodesRevealDuration), () {
+          if (allTilesMineStatus[x][y]) {
+            allTilesStatus[x][y] = TileState.Blasted;
+          }
           notifyListeners();
-        }
+        });
       }
     }
     currentGameStatus = GameStatus.Lost;
@@ -160,9 +171,11 @@ class MSProvider extends ChangeNotifier {
       allTilesStatus[y][x] = TileState.Open;
       notifyListeners();
     }
-    if (x < levelSelectionModel.rowCount - 1) floodReveal(x + 1, y);
-    if (x > 0) floodReveal(x - 1, y);
-    if (y < levelSelectionModel.rowCount - 1) floodReveal(x, y + 1);
-    if (y > 0) floodReveal(x, y - 1);
+    Timer(Duration(milliseconds: 0), () {
+      if (x < levelSelectionModel.rowCount - 1) floodReveal(x + 1, y);
+      if (x > 0) floodReveal(x - 1, y);
+      if (y < levelSelectionModel.rowCount - 1) floodReveal(x, y + 1);
+      if (y > 0) floodReveal(x, y - 1);
+    });
   }
 }
