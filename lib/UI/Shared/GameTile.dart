@@ -53,7 +53,10 @@ class GameTile extends StatelessWidget {
           color: tileState == TileState.Blasted
               ? Colors.redAccent
               : tileState == TileState.Open
-                  ? Colors.transparent
+              ? Theme
+              .of(context)
+              .accentColor
+              .withOpacity(0.2)
                   : tileState == TileState.Flagged
                       ? Colors.grey
                       : Theme.of(context).primaryColor,

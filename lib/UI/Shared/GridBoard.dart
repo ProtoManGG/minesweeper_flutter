@@ -16,28 +16,33 @@ class _GridBoardState extends State<GridBoard> {
     final size = MediaQuery.of(context).size;
     final gameModel = Provider.of<MSProvider>(context);
     int numRows = gameModel.levelSelectionModel.rowCount;
-    return Container(
-      child: SingleChildScrollView(
-        scrollDirection: Axis.horizontal,
-        child: SizedBox(
-          width:
-              calculateOuterScrollWidth(numRows, gameModel.currentGameStatus),
-          child: ListView.builder(
-              itemCount: numRows,
-              itemBuilder: (context, index) {
-                return Row(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: generateHorizontalItems(index, numRows),
-                );
-              }),
+    return Padding(
+      padding: const EdgeInsets.all(18.0),
+      child: Container(
+        child: SingleChildScrollView(
+          physics: BouncingScrollPhysics(),
+          scrollDirection: Axis.horizontal,
+          child: SizedBox(
+            width:
+            calculateOuterScrollWidth(numRows, gameModel.currentGameStatus),
+            child: ListView.builder(
+                physics: BouncingScrollPhysics(),
+                itemCount: numRows,
+                itemBuilder: (context, index) {
+                  return Row(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: generateHorizontalItems(index, numRows),
+                  );
+                }),
+          ),
         ),
       ),
     );
   }
 
   double calculateOuterScrollWidth(int num, GameStatus gameStatus) {
-      return 50.0 * num;
+    return 50.0 * num;
   }
 
   List<Widget> generateHorizontalItems(int index, int rows) {
