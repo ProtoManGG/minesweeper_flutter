@@ -34,7 +34,7 @@ class MSProvider extends ChangeNotifier {
   }
 
   void checkResumeAvailable(GameLevel gameLevel) {
-    isResumeAvailable = gameLevel == GameLevel.Medium ? false : true;
+    isResumeAvailable = false;
     notifyListeners();
   }
 

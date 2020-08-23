@@ -3,9 +3,9 @@
     "short_name": "minesweeper",
     "start_url": ".",
     "display": "standalone",
-    "background_color": "#0175C2",
-    "theme_color": "#0175C2",
-    "description": "A new Flutter application.",
+    "background_color": "#383637",
+    "theme_color": "#383637",
+    "description": "A Flutter Based Minesweeper Game.",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [
