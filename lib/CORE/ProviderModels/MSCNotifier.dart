@@ -20,6 +20,9 @@ class MSProvider extends ChangeNotifier {
   List<List<TileState>> allTilesStatus;
   List<List<bool>> allTilesMineStatus;
 
+  int flagsSet = 0;
+  int totalMines;
+
   MSProvider() {
     checkResumeAvailable(currentGameLevel);
     resetAll();
@@ -52,6 +55,8 @@ class MSProvider extends ChangeNotifier {
 
     Random random = Random();
     int remainingNumOfMines = levelSelectionModel.minesCount;
+
+    totalMines = levelSelectionModel.minesCount;
 
     while (remainingNumOfMines > 0) {
       int positionOfMine = random
@@ -116,6 +121,10 @@ class MSProvider extends ChangeNotifier {
 
     if (tileState == TileState.Flagged) {
       tileState = TileState.Covered;
+      --flagsSet;
+      allTilesStatus[y][x] = tileState;
+      notifyListeners();
+      return;
     } else if (tileState == TileState.Covered) {
       tileState = TileState.Open;
     }
@@ -147,13 +156,17 @@ class MSProvider extends ChangeNotifier {
   }
 
   void flagPosition(int x, int y) {
+    if (flagsSet >= totalMines) return;
+
     TileState tileState = allTilesStatus[y][x];
     if (tileState == TileState.Open) return;
 
     if (tileState == TileState.Flagged) {
       tileState = TileState.Covered;
+      --flagsSet;
     } else if (tileState == TileState.Covered) {
       tileState = TileState.Flagged;
+      ++flagsSet;
     }
 
     allTilesStatus[y][x] = tileState;
@@ -171,7 +184,7 @@ class MSProvider extends ChangeNotifier {
       allTilesStatus[y][x] = TileState.Open;
       notifyListeners();
     }
-    Timer(Duration(milliseconds: 0), () {
+    Timer(Duration(milliseconds: 10), () {
       if (x < levelSelectionModel.rowCount - 1) floodReveal(x + 1, y);
       if (x > 0) floodReveal(x - 1, y);
       if (y < levelSelectionModel.rowCount - 1) floodReveal(x, y + 1);
