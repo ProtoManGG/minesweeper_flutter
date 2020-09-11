@@ -71,34 +71,33 @@ class _GameBoardState extends State<GameBoard> {
               height: 100,
               width: size.width,
               child: gameModel.currentGameStatus == GameStatus.GoingOn ||
-                  gameModel.currentGameStatus == GameStatus.Starting
-                  ? Container()
+                      gameModel.currentGameStatus == GameStatus.Starting
+                  ? Center(
+                      child: Text((gameModel.totalMines - gameModel.flagsSet)
+                          .toString()),
+                    )
                   : Center(
-                child: InkWell(
-                  onTap: () {
-                    startNewGame(context);
-                  },
-                  borderRadius: BorderRadius.circular(25),
-                  highlightColor: Theme
-                      .of(context)
-                      .primaryColor,
-                  child: AnimatedContainer(
-                      duration: Constants.DURATION_400,
-                      width: size.width / 2,
-                      height: 50,
-                      child: Center(
-                        child: Text("New Game"),
-                      ),
-                      decoration: BoxDecoration(
+                      child: InkWell(
+                        onTap: () {
+                          startNewGame(context);
+                        },
                         borderRadius: BorderRadius.circular(25),
-                        border: Border.all(
-                            width: 2,
-                            color: Theme
-                                .of(context)
-                                .primaryColor),
-                      )),
-                ),
-              ),
+                        highlightColor: Theme.of(context).primaryColor,
+                        child: AnimatedContainer(
+                            duration: Constants.DURATION_400,
+                            width: size.width / 2,
+                            height: 50,
+                            child: Center(
+                              child: Text("New Game"),
+                            ),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(25),
+                              border: Border.all(
+                                  width: 2,
+                                  color: Theme.of(context).primaryColor),
+                            )),
+                      ),
+                    ),
             )
           ],
         ),

@@ -41,7 +41,7 @@ class GameTile extends StatelessWidget {
             gameModel.currentGameStatus == GameStatus.Lost ||
                     gameModel.currentGameStatus == GameStatus.Won
                 ? 10
-                : 0.0),
+                : 1.0),
         duration: const Duration(milliseconds: 400),
         width: 50,
         height: 50,
