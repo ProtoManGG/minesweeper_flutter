@@ -14,20 +14,22 @@ class GameTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final gameModel = Provider.of<MSProvider>(context);
-    TileState tileState = gameModel.allTilesStatus[y][x];
+    final TileState tileState = gameModel.allTilesStatus[y][x];
     Widget getChild() {
       if (tileState == TileState.Covered) {
-        return SizedBox();
+        return const SizedBox();
       } else if (tileState == TileState.Open) {
         if (gameModel.countSurroundingMines(x, y) == 0) {
-          return SizedBox();
-        } else
+          return const SizedBox();
+        } else {
           return Center(
               child: Text(gameModel.countSurroundingMines(x, y).toString()));
+        }
       } else if (tileState == TileState.Flagged) {
-        return Center(child: Icon(Icons.flag));
-      } else
-        return Center(child: Icon(Icons.restaurant_menu));
+        return const Center(child: Icon(Icons.flag));
+      } else {
+        return const Center(child: Icon(Icons.restaurant_menu));
+      }
     }
 
     return InkWell(
@@ -50,17 +52,14 @@ class GameTile extends StatelessWidget {
           width: 30,
           height: 30,
           duration: const Duration(milliseconds: 400),
-          child: getChild(),
           color: tileState == TileState.Blasted
               ? Colors.redAccent
               : tileState == TileState.Open
-              ? Theme
-              .of(context)
-              .accentColor
-              .withOpacity(0.2)
+                  ? Theme.of(context).accentColor.withOpacity(0.2)
                   : tileState == TileState.Flagged
                       ? Colors.grey
                       : Theme.of(context).primaryColor,
+          child: getChild(),
         ),
       ),
     );

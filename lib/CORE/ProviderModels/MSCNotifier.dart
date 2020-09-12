@@ -54,16 +54,16 @@ class MSProvider extends ChangeNotifier {
       return List<bool>.filled(levelSelectionModel.rowCount, false);
     });
 
-    Random random = Random();
+    final Random random = Random();
     int remainingNumOfMines = levelSelectionModel.minesCount;
 
     totalMines = levelSelectionModel.minesCount;
 
     while (remainingNumOfMines > 0) {
-      int positionOfMine = random
+      final int positionOfMine = random
           .nextInt(levelSelectionModel.rowCount * levelSelectionModel.rowCount);
-      int rowIndexOfMine = positionOfMine ~/ levelSelectionModel.rowCount;
-      int columnIndexOfMine = positionOfMine % levelSelectionModel.rowCount;
+      final int rowIndexOfMine = positionOfMine ~/ levelSelectionModel.rowCount;
+      final int columnIndexOfMine = positionOfMine % levelSelectionModel.rowCount;
 
       //check if new position doesn't have a mine already
       if (!allTilesMineStatus[rowIndexOfMine][columnIndexOfMine]) {
@@ -175,7 +175,7 @@ class MSProvider extends ChangeNotifier {
   }
 
   void floodReveal(int x, int y) {
-    TileState tileState = allTilesStatus[y][x];
+    final TileState tileState = allTilesStatus[y][x];
     if (isAMine(x, y) == 1 || countSurroundingMines(x, y) != 0) {
       return;
     }
@@ -185,7 +185,7 @@ class MSProvider extends ChangeNotifier {
       allTilesStatus[y][x] = TileState.Open;
       notifyListeners();
     }
-    Timer(Duration(milliseconds: 10), () {
+    Timer(const Duration(milliseconds: 10), () {
       if (x < levelSelectionModel.rowCount - 1) floodReveal(x + 1, y);
       if (x > 0) floodReveal(x - 1, y);
       if (y < levelSelectionModel.rowCount - 1) floodReveal(x, y + 1);

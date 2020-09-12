@@ -5,7 +5,6 @@ import 'CORE/ProviderModels/MSCNotifier.dart';
 import 'CORE/ProviderModels/ThemeNotifier.dart';
 import 'UI/Screens/MainScreen.dart';
 
-
 void main() {
   runApp(MyApp());
 }
@@ -25,6 +24,7 @@ class MyApp extends StatelessWidget {
 }
 
 class MSMaterialApp extends StatelessWidget {
+  @override
   Widget build(BuildContext context) {
     final model = Provider.of<ThemeNotifier>(context);
     return MaterialApp(

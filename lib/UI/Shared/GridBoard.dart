@@ -16,27 +16,24 @@ class _GridBoardState extends State<GridBoard> {
   Widget build(BuildContext context) {
     // final size = MediaQuery.of(context).size;
     final gameModel = Provider.of<MSProvider>(context);
-    int numRows = gameModel.levelSelectionModel.rowCount;
+    final int numRows = gameModel.levelSelectionModel.rowCount;
     return Padding(
       padding: const EdgeInsets.all(18.0),
-      child: Container(
-        child: SingleChildScrollView(
-          physics: BouncingScrollPhysics(),
-          scrollDirection: Axis.horizontal,
-          child: SizedBox(
-            width:
-                calculateOuterScrollWidth(numRows, gameModel.currentGameStatus),
-            child: ListView.builder(
-                physics: BouncingScrollPhysics(),
-                itemCount: numRows,
-                itemBuilder: (context, index) {
-                  return Row(
-                    mainAxisSize: MainAxisSize.max,
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: generateHorizontalItems(index, numRows),
-                  );
-                }),
-          ),
+      child: SingleChildScrollView(
+        physics: const BouncingScrollPhysics(),
+        scrollDirection: Axis.horizontal,
+        child: SizedBox(
+          width:
+              calculateOuterScrollWidth(numRows, gameModel.currentGameStatus),
+          child: ListView.builder(
+              physics: const BouncingScrollPhysics(),
+              itemCount: numRows,
+              itemBuilder: (context, index) {
+                return Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: generateHorizontalItems(index, numRows),
+                );
+              }),
         ),
       ),
     );
@@ -47,7 +44,7 @@ class _GridBoardState extends State<GridBoard> {
   }
 
   List<Widget> generateHorizontalItems(int index, int rows) {
-    List<Widget> items = [];
+    final List<Widget> items = [];
     for (int i = 0; i < rows; i++) {
       items.add(GameTile(x: i, y: index));
     }

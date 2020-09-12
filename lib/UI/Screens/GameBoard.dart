@@ -29,8 +29,6 @@ class _GameBoardState extends State<GameBoard> {
     return Scaffold(
       body: SafeArea(
         child: Column(
-          mainAxisSize: MainAxisSize.max,
-          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Container(
               height: 70,
@@ -43,16 +41,15 @@ class _GameBoardState extends State<GameBoard> {
                         onTap: () {
                           Navigator.of(context).pop();
                         },
-                        child: Padding(
-                          padding: const EdgeInsets.symmetric(
+                        child: const Padding(
+                          padding: EdgeInsets.symmetric(
                               vertical: 8.0, horizontal: 20.0),
                           child: Icon(Icons.arrow_back),
                         )),
                   ),
-                  Align(
-                    alignment: Alignment.center,
+                  const Align(
                     child: Padding(
-                      padding: const EdgeInsets.all(8.0),
+                      padding: EdgeInsets.all(8.0),
                       child: Icon(Icons.timelapse),
                     ),
                   ),
@@ -75,23 +72,21 @@ class _GameBoardState extends State<GameBoard> {
               width: size.width,
               child: gameModel.currentGameStatus == GameStatus.GoingOn ||
                       gameModel.currentGameStatus == GameStatus.Starting
-                  ? Container(
-                      child: Center(
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text(
-                              gameModel.flagsSet.toString(),
-                              style: GoogleFonts.b612(
-                                fontSize: size.width * 0.09,
-                              ),
+                  ? Center(
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            gameModel.flagsSet.toString(),
+                            style: GoogleFonts.b612(
+                              fontSize: size.width * 0.09,
                             ),
-                            SizedBox(
-                              width: size.width * 0.05,
-                            ),
-                            FaIcon(FontAwesomeIcons.flag),
-                          ],
-                        ),
+                          ),
+                          SizedBox(
+                            width: size.width * 0.05,
+                          ),
+                          const FaIcon(FontAwesomeIcons.flag),
+                        ],
                       ),
                     )
                   : Center(
@@ -102,18 +97,19 @@ class _GameBoardState extends State<GameBoard> {
                         borderRadius: BorderRadius.circular(25),
                         highlightColor: Theme.of(context).primaryColor,
                         child: AnimatedContainer(
-                            duration: Constants.DURATION_400,
-                            width: size.width / 2,
-                            height: 50,
-                            child: Center(
-                              child: Text("New Game"),
-                            ),
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(25),
-                              border: Border.all(
-                                  width: 2,
-                                  color: Theme.of(context).primaryColor),
-                            )),
+                          duration: Constants.DURATION_400,
+                          width: size.width / 2,
+                          height: 50,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(25),
+                            border: Border.all(
+                                width: 2,
+                                color: Theme.of(context).primaryColor),
+                          ),
+                          child: const Center(
+                            child: Text("New Game"),
+                          ),
+                        ),
                       ),
                     ),
             )

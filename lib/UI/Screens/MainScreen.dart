@@ -25,8 +25,8 @@ class MainScreen extends StatelessWidget {
                 padding: const EdgeInsets.all(18.0),
                 child: InkWell(
                   onTap: () {},
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
+                  child: const Padding(
+                    padding: EdgeInsets.all(8.0),
                     child: Icon(
                       Icons.settings,
                       size: 30,
@@ -39,7 +39,6 @@ class MainScreen extends StatelessWidget {
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Column(
                     children: [
@@ -49,9 +48,7 @@ class MainScreen extends StatelessWidget {
                         child: Image.asset(
                           "assets/images/mineIcon.png",
                           fit: BoxFit.cover,
-                          color: Theme
-                              .of(context)
-                              .primaryColor,
+                          color: Theme.of(context).primaryColor,
                         ),
                       ),
                       Padding(
@@ -63,24 +60,21 @@ class MainScreen extends StatelessWidget {
                           startNewGame(context);
                         },
                         borderRadius: BorderRadius.circular(25),
-                        highlightColor: Theme
-                            .of(context)
-                            .primaryColor,
+                        highlightColor: Theme.of(context).primaryColor,
                         child: AnimatedContainer(
-                            duration: Constants.DURATION_400,
-                            width: size.width / 2,
-                            height: 50,
-                            child: Center(
-                              child: Text("New Game"),
-                            ),
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(25),
-                              border: Border.all(
-                                  width: 2,
-                                  color: Theme
-                                      .of(context)
-                                      .primaryColor),
-                            )),
+                          duration: Constants.DURATION_400,
+                          width: size.width / 2,
+                          height: 50,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(25),
+                            border: Border.all(
+                                width: 2,
+                                color: Theme.of(context).primaryColor),
+                          ),
+                          child: const Center(
+                            child: Text("New Game"),
+                          ),
+                        ),
                       ),
                       AnimatedOpacity(
                         duration: Constants.DURATION_400,
@@ -93,21 +87,14 @@ class MainScreen extends StatelessWidget {
                             child: OutlineButton(
                               onPressed: () {},
                               highlightedBorderColor:
-                              Theme
-                                  .of(context)
-                                  .primaryColor,
+                                  Theme.of(context).primaryColor,
                               borderSide: BorderSide(
-                                  color: Theme
-                                      .of(context)
-                                      .primaryColor,
+                                  color: Theme.of(context).primaryColor,
                                   width: 4),
-                              shape: new RoundedRectangleBorder(
-                                  borderRadius: new BorderRadius.circular(
-                                      25.0)),
-                              highlightColor: Theme
-                                  .of(context)
-                                  .primaryColor,
-                              child: Center(
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(25.0)),
+                              highlightColor: Theme.of(context).primaryColor,
+                              child: const Center(
                                 child: Text("Resume Game"),
                               ),
                             ),
@@ -117,9 +104,8 @@ class MainScreen extends StatelessWidget {
                     ],
                   ),
                   Row(
-                    mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
+                    children: const [
                       Icon(Icons.list),
                       Icon(Icons.list),
                       Icon(Icons.list),
@@ -140,8 +126,12 @@ class MainScreen extends StatelessWidget {
   }
 
   void startNewGame(BuildContext context) {
-    Navigator.of(context).push(MaterialPageRoute(builder: (_) {
-      return GameBoard();
-    }));
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (_) {
+          return GameBoard();
+        },
+      ),
+    );
   }
 }

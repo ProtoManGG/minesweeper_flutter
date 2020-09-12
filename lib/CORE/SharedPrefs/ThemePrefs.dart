@@ -4,7 +4,7 @@ import '../Helpers/Constants.dart';
 
 class ThemePrefs{
   static Future<String> getSavedThemeKey() async {
-    SharedPreferences myPrefs = await SharedPreferences.getInstance();
+    final SharedPreferences myPrefs = await SharedPreferences.getInstance();
     return myPrefs.getString(Constants.THEME_KEY) ?? "sah";
   }
 }

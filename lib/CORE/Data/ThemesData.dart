@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../Helpers/emuns.dart';
 import 'ColorsData.dart';
 
-class ThemesData {
+mixin ThemesData {
   static final ThemeData deepPurple = ThemeData(
     primaryColor: ColorsData.deepPurple.primaryColor,
     scaffoldBackgroundColor: ColorsData.deepPurple.backgroundColor,

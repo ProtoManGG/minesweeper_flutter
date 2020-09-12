@@ -1,7 +1,7 @@
 import '../Helpers/emuns.dart';
 import '../Models/LevelSelectionModel.dart';
 
-class GameLevelsData {
+mixin GameLevelsData {
   static LevelSelectionModel beginner =
       LevelSelectionModel("Beginner", GameLevel.Beginner, 5, 10);
   static LevelSelectionModel easy =

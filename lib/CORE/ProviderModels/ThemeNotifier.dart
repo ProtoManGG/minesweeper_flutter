@@ -10,12 +10,12 @@ class ThemeNotifier extends ChangeNotifier {
   ThemeData currentThemeData = ThemesData.darkGarden;
   ThemeSelectorState currentExpansionState = ThemeSelectorState.Closed;
 
-  setCurrentTheme(AppTheme appTheme) {
+  void setCurrentTheme(AppTheme appTheme) {
     currentThemeData = ThemesData.getThemeDataFromKey(appTheme);
     notifyListeners();
   }
 
-  toggleSelectorExpansionState() {
+  void toggleSelectorExpansionState() {
     if (currentExpansionState == ThemeSelectorState.Closed) {
       currentExpansionState = ThemeSelectorState.Expanded;
     } else {
@@ -25,13 +25,16 @@ class ThemeNotifier extends ChangeNotifier {
   }
 
   List<ThemeSelectionModel> getAllThemesData() {
-    List<ThemeSelectionModel> list = [];
+    final List<ThemeSelectionModel> list = [];
     ColorsData.getAllColor().forEach((element) {
-      list.add(ThemeSelectionModel(
-          element.backgroundColor,
-          element.primaryColor,
-          currentThemeData.primaryColor == element.primaryColor,
-      element.appTheme));
+      list.add(
+        ThemeSelectionModel(
+          background: element.backgroundColor,
+          primary: element.primaryColor,
+          isSelected: currentThemeData.primaryColor == element.primaryColor,
+          appTheme: element.appTheme,
+        ),
+      );
     });
     return list;
   }
