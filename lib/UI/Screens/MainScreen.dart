@@ -4,7 +4,7 @@ import 'package:provider/provider.dart';
 
 import '../../CORE/Helpers/Constants.dart';
 import '../../CORE/ProviderModels/MSCNotifier.dart';
-import '../../CORE/ProviderModels/ThemeNotifier.dart';
+// import '../../CORE/ProviderModels/ThemeNotifier.dart';
 import '../Shared/GameLevelSelector.dart';
 import '../Shared/ThemeSelectorWidget.dart';
 import 'GameBoard.dart';
@@ -12,7 +12,7 @@ import 'GameBoard.dart';
 class MainScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final themeModel = Provider.of<ThemeNotifier>(context);
+    // final themeModel = Provider.of<ThemeNotifier>(context);
     final gameModel = Provider.of<MSProvider>(context);
     final size = MediaQuery.of(context).size;
     return Scaffold(

@@ -117,7 +117,7 @@ class MSProvider extends ChangeNotifier {
 
   void handleTapOfGameTile(int x, int y) {
     TileState tileState = allTilesStatus[y][x];
-    int nearByMineCount = countSurroundingMines(x, y);
+    // int nearByMineCount = countSurroundingMines(x, y);
     if (tileState == TileState.Open) return;
 
     if (tileState == TileState.Flagged) {

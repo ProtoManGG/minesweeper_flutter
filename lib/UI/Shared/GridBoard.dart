@@ -14,7 +14,7 @@ class GridBoard extends StatefulWidget {
 class _GridBoardState extends State<GridBoard> {
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
+    // final size = MediaQuery.of(context).size;
     final gameModel = Provider.of<MSProvider>(context);
     int numRows = gameModel.levelSelectionModel.rowCount;
     return Padding(
@@ -25,7 +25,7 @@ class _GridBoardState extends State<GridBoard> {
           scrollDirection: Axis.horizontal,
           child: SizedBox(
             width:
-            calculateOuterScrollWidth(numRows, gameModel.currentGameStatus),
+                calculateOuterScrollWidth(numRows, gameModel.currentGameStatus),
             child: ListView.builder(
                 physics: BouncingScrollPhysics(),
                 itemCount: numRows,
