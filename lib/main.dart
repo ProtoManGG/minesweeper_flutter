@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:minesweeper/CORE/ProviderModels/ThemeNotifier.dart';
-import 'package:minesweeper/UI/Screens/MainScreen.dart';
 import 'package:provider/provider.dart';
 
 import 'CORE/ProviderModels/MSCNotifier.dart';
+import 'CORE/ProviderModels/ThemeNotifier.dart';
+import 'UI/Screens/MainScreen.dart';
 
 
 void main() {

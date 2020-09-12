@@ -1,4 +1,4 @@
-import 'package:minesweeper/CORE/Helpers/emuns.dart';
+import '../Helpers/emuns.dart';
 
 class LevelSelectionModel{
   final String level;

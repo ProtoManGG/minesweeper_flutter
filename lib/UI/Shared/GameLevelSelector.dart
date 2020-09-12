@@ -1,10 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:minesweeper/CORE/Data/GameLevelsData.dart';
-import 'package:minesweeper/CORE/Helpers/Constants.dart';
-import 'package:minesweeper/CORE/Models/LevelSelectionModel.dart';
-import 'package:minesweeper/CORE/ProviderModels/MSCNotifier.dart';
 import 'package:provider/provider.dart';
+
+import '../../CORE/Data/GameLevelsData.dart';
+import '../../CORE/Helpers/Constants.dart';
+import '../../CORE/Models/LevelSelectionModel.dart';
+import '../../CORE/ProviderModels/MSCNotifier.dart';
 
 class GameLevelSelector extends StatefulWidget {
   @override

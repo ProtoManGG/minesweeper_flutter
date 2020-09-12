@@ -2,12 +2,13 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:minesweeper/CORE/Helpers/Constants.dart';
-import 'package:minesweeper/CORE/Helpers/emuns.dart';
-import 'package:minesweeper/CORE/ProviderModels/MSCNotifier.dart';
-import 'package:minesweeper/UI/Shared/GridBoard.dart';
-import 'package:minesweeper/UI/Shared/ThemeSelectorWidget.dart';
 import 'package:provider/provider.dart';
+
+import '../../CORE/Helpers/Constants.dart';
+import '../../CORE/Helpers/emuns.dart';
+import '../../CORE/ProviderModels/MSCNotifier.dart';
+import '../Shared/GridBoard.dart';
+import '../Shared/ThemeSelectorWidget.dart';
 
 class GameBoard extends StatefulWidget {
   @override

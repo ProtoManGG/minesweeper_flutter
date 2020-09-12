@@ -1,5 +1,6 @@
-import 'package:minesweeper/CORE/Helpers/Constants.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
+import '../Helpers/Constants.dart';
 
 class ThemePrefs{
   static Future<String> getSavedThemeKey() async {

@@ -1,12 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:minesweeper/CORE/Helpers/Constants.dart';
-import 'package:minesweeper/CORE/ProviderModels/MSCNotifier.dart';
-import 'package:minesweeper/CORE/ProviderModels/ThemeNotifier.dart';
-import 'package:minesweeper/UI/Screens/GameBoard.dart';
-import 'package:minesweeper/UI/Shared/GameLevelSelector.dart';
-import 'package:minesweeper/UI/Shared/ThemeSelectorWidget.dart';
 import 'package:provider/provider.dart';
+
+import '../../CORE/Helpers/Constants.dart';
+import '../../CORE/ProviderModels/MSCNotifier.dart';
+import '../../CORE/ProviderModels/ThemeNotifier.dart';
+import '../Shared/GameLevelSelector.dart';
+import '../Shared/ThemeSelectorWidget.dart';
+import 'GameBoard.dart';
 
 class MainScreen extends StatelessWidget {
   @override

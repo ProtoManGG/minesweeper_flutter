@@ -1,6 +1,6 @@
 import 'dart:ui';
 
-import 'package:minesweeper/CORE/Helpers/emuns.dart';
+import '../Helpers/emuns.dart';
 
 class ThemeSelectionModel{
   final Color background;

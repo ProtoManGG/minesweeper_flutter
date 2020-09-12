@@ -1,5 +1,5 @@
-import 'package:minesweeper/CORE/Helpers/emuns.dart';
-import 'package:minesweeper/CORE/Models/LevelSelectionModel.dart';
+import '../Helpers/emuns.dart';
+import '../Models/LevelSelectionModel.dart';
 
 class GameLevelsData {
   static LevelSelectionModel beginner =

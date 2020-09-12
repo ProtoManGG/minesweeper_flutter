@@ -2,9 +2,10 @@ import 'dart:async';
 import 'dart:math';
 
 import 'package:flutter/cupertino.dart';
-import 'package:minesweeper/CORE/Data/GameLevelsData.dart';
-import 'package:minesweeper/CORE/Helpers/emuns.dart';
-import 'package:minesweeper/CORE/Models/LevelSelectionModel.dart';
+
+import '../Data/GameLevelsData.dart';
+import '../Helpers/emuns.dart';
+import '../Models/LevelSelectionModel.dart';
 
 class MSProvider extends ChangeNotifier {
   GameLevel currentGameLevel = GameLevel.Beginner;

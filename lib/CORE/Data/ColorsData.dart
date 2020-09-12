@@ -1,7 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:minesweeper/CORE/Helpers/emuns.dart';
-import 'package:minesweeper/CORE/Models/ColorData.dart';
+
+import '../Helpers/emuns.dart';
+import '../Models/ColorData.dart';
 
 class ColorsData {
   static final ColorData deepPurple = ColorData(

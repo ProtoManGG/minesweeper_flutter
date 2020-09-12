@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:minesweeper/CORE/Helpers/emuns.dart';
+
+import '../Helpers/emuns.dart';
 
 class ColorData{
   final Color primaryColor;

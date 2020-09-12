@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:minesweeper/CORE/Helpers/emuns.dart';
-import 'package:minesweeper/CORE/Data/ColorsData.dart';
+
+import '../Helpers/emuns.dart';
+import 'ColorsData.dart';
 
 class ThemesData {
   static final ThemeData deepPurple = ThemeData(

@@ -1,8 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:minesweeper/CORE/Helpers/emuns.dart';
-import 'package:minesweeper/CORE/ProviderModels/MSCNotifier.dart';
 import 'package:provider/provider.dart';
+
+import '../../CORE/Helpers/emuns.dart';
+import '../../CORE/ProviderModels/MSCNotifier.dart';
 
 class GameTile extends StatelessWidget {
   final int x;

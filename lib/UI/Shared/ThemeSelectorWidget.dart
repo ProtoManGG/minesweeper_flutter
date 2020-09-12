@@ -1,10 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:minesweeper/CORE/Helpers/Constants.dart';
-import 'package:minesweeper/CORE/Helpers/emuns.dart';
-import 'package:minesweeper/CORE/Models/ThemeSelectionModel.dart';
-import 'package:minesweeper/CORE/ProviderModels/ThemeNotifier.dart';
 import 'package:provider/provider.dart';
+
+import '../../CORE/Helpers/Constants.dart';
+import '../../CORE/Helpers/emuns.dart';
+import '../../CORE/Models/ThemeSelectionModel.dart';
+import '../../CORE/ProviderModels/ThemeNotifier.dart';
 
 class ThemeSelectorWidget extends StatefulWidget {
   @override

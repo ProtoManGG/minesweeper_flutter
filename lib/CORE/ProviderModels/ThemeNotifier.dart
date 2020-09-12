@@ -1,9 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:minesweeper/CORE/Data/ColorsData.dart';
-import 'package:minesweeper/CORE/Helpers/emuns.dart';
-import 'package:minesweeper/CORE/Models/ThemeSelectionModel.dart';
-import 'package:minesweeper/CORE/Data/ThemesData.dart';
+
+import '../Data/ColorsData.dart';
+import '../Data/ThemesData.dart';
+import '../Helpers/emuns.dart';
+import '../Models/ThemeSelectionModel.dart';
 
 class ThemeNotifier extends ChangeNotifier {
   ThemeData currentThemeData = ThemesData.darkGarden;
