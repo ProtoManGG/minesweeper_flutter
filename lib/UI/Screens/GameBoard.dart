@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:minesweeper/CORE/Helpers/Constants.dart';
 import 'package:minesweeper/CORE/Helpers/emuns.dart';
 import 'package:minesweeper/CORE/ProviderModels/MSCNotifier.dart';
@@ -72,9 +74,24 @@ class _GameBoardState extends State<GameBoard> {
               width: size.width,
               child: gameModel.currentGameStatus == GameStatus.GoingOn ||
                       gameModel.currentGameStatus == GameStatus.Starting
-                  ? Center(
-                      child: Text((gameModel.totalMines - gameModel.flagsSet)
-                          .toString()),
+                  ? Container(
+                      child: Center(
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              gameModel.flagsSet.toString(),
+                              style: GoogleFonts.b612(
+                                fontSize: size.width * 0.09,
+                              ),
+                            ),
+                            SizedBox(
+                              width: size.width * 0.05,
+                            ),
+                            FaIcon(FontAwesomeIcons.flag),
+                          ],
+                        ),
+                      ),
                     )
                   : Center(
                       child: InkWell(
